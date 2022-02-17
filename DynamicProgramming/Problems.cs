@@ -180,6 +180,45 @@ public static class Problems
 
     #endregion
 
+    #region CanConstruct
+
+    public static bool CanConstruct(string target, string[] wordBank)
+    {
+        if (string.IsNullOrWhiteSpace(target))
+            return true;
+
+        for (int i = 0; i < wordBank.Length; i++)
+        {
+            if (!CheckPrefix(target, wordBank[i]))
+                continue;
+
+            var newTarget = RemovePrefix(target, wordBank[i]);
+            if (CanConstruct(newTarget, wordBank))
+                return true;
+        }
+
+        return false;
+    }
+
+    private static string RemovePrefix(string word, string prefix)
+    {
+        if (!CheckPrefix(word, prefix))
+            return word;
+        return word.Substring(prefix.Length);
+        //return word.Replace(prefix, string.Empty);
+    }
+
+    private static bool CheckPrefix(string word, string prefix)
+    {
+        for (int i = 0; i < prefix.Length; i++)
+        {
+            if (prefix[i] != word[i])
+                return false;
+        }
+        return true;
+    }
+    #endregion
+
     #region Helpers
 
     private static List<int> CreateList(List<int> list)
