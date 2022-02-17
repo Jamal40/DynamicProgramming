@@ -182,8 +182,13 @@ public static class Problems
 
     #region CanConstruct
 
-    public static bool CanConstruct(string target, string[] wordBank)
+    public static bool CanConstruct(string target, string[] wordBank, Dictionary<string, bool> memo = null)
     {
+        memo ??= new();
+
+        if (memo.ContainsKey(target))
+            return memo[target];
+
         if (string.IsNullOrWhiteSpace(target))
             return true;
 
@@ -193,11 +198,16 @@ public static class Problems
                 continue;
 
             var newTarget = RemovePrefix(target, wordBank[i]);
-            if (CanConstruct(newTarget, wordBank))
-                return true;
+            if (CanConstruct(newTarget, wordBank, memo))
+            {
+                memo[target] = true;
+                return memo[target];
+            }
+
         }
 
-        return false;
+        memo[target] = false;
+        return memo[target];
     }
 
     private static string RemovePrefix(string word, string prefix)

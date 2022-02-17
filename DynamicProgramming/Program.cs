@@ -57,7 +57,7 @@ PrintCollection(Problems.BestSum(100, new int[] { 1, 2, 5, 25 }));
 Console.WriteLine(Problems.CanConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" })); //true
 Console.WriteLine(Problems.CanConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" })); //false
 Console.WriteLine(Problems.CanConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" })); //true
-Console.WriteLine(Problems.CanConstruct("eeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" })); //true
+Console.WriteLine(Problems.CanConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" })); //false
 
 #endregion
 
