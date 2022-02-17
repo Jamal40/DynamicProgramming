@@ -166,15 +166,16 @@ public static class Problems
         for (int i = 0; i < numbers.Length; i++)
         {
             int newSum = sum - numbers[i];
-            memo[sum] = CreateList(BestSum(newSum, numbers, memo));
-            if (memo[sum] is not null)
+            var currentList = CreateList(BestSum(newSum, numbers, memo));
+            if (currentList is not null)
             {
-                memo[sum].Add(numbers[i]);
-                resultSum.Add(memo[sum]);
+                currentList.Add(numbers[i]);
+                resultSum.Add(currentList);
             }
         }
 
-        return resultSum.Any() ? GetShortestList(resultSum) : null;
+        memo[sum] = resultSum.Any() ? GetShortestList(resultSum) : null;
+        return memo[sum];
     }
 
     #endregion
