@@ -40,6 +40,12 @@ PrintCollection(Problems.HowSum2(7, new int[] { 3, 2 }));
 PrintCollection(Problems.HowSum2(7, new int[] { 5, 4, 3, 2 }));
 PrintCollection(Problems.HowSum2(8, new int[] { 2, 5, 3 }));
 PrintCollection(Problems.HowSum2(300, new int[] { 7, 14 }));
+Console.WriteLine("------////-------");
+PrintCollection(Problems.BestSum(7, new int[] { 4, 2 }));
+PrintCollection(Problems.BestSum(7, new int[] { 3, 2 }));
+PrintCollection(Problems.BestSum(7, new int[] { 5, 4, 3, 2 }));
+PrintCollection(Problems.BestSum(8, new int[] { 2, 5, 3 }));
+PrintCollection(Problems.BestSum(300, new int[] { 7, 14 }));
 
 #endregion
 

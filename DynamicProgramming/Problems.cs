@@ -81,8 +81,8 @@ public static class Problems
         for (int i = 0; i < numbers.Length; i++)
         {
             var newSum = sum - numbers[i];
-            memo[newSum] = CanSum(newSum, numbers, memo);
-            if (memo[newSum])
+            memo[sum] = CanSum(newSum, numbers, memo);
+            if (memo[sum])
                 return true;
         }
         return false;
@@ -113,8 +113,8 @@ public static class Problems
         for (int i = 0; i < numbers.Length; i++)
         {
             int newSum = sum - numbers[i];
-            memo[newSum] = HowSumHelper(newSum, numbers, result, memo);
-            if (memo[newSum])
+            memo[sum] = HowSumHelper(newSum, numbers, result, memo);
+            if (memo[sum])
             {
                 result.Add(numbers[i]);
                 return true;
@@ -130,24 +130,76 @@ public static class Problems
         if (memo.ContainsKey(sum))
             return memo[sum];
         if (sum == 0)
-            return new List<int> ();
+            return new List<int>();
         if (sum < 0)
             return null;
 
         for (int i = 0; i < numbers.Length; i++)
         {
             int newSum = sum - numbers[i];
-            memo[newSum] = HowSum2(newSum, numbers, memo);
-            if (memo[newSum] is not null)
+            memo[sum] = CreateList(HowSum2(newSum, numbers, memo));
+            if (memo[sum] is not null)
             {
-                memo[newSum].Add(numbers[i]);
-                return memo[newSum];
+                memo[sum].Add(numbers[i]);
+                return memo[sum];
             }
         }
 
         return null;
     }
 
+    #endregion
+
+    #region BestSum
+
+    public static List<int> BestSum(int sum, int[] numbers, Dictionary<int, List<int>> memo = null)
+    {
+        memo ??= new();
+
+        if (memo.ContainsKey(sum))
+            return memo[sum];
+        if (sum == 0)
+            return new List<int>();
+        if (sum < 0)
+            return null;
+        var resultSum = new List<List<int>>();
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            int newSum = sum - numbers[i];
+            memo[sum] = CreateList(BestSum(newSum, numbers, memo));
+            if (memo[sum] is not null)
+            {
+                memo[sum].Add(numbers[i]);
+                resultSum.Add(memo[sum]);
+            }
+        }
+
+        return resultSum.Any() ? GetShortestList(resultSum) : null;
+    }
+
+    #endregion
+
+    #region Helpers
+
+    private static List<int> CreateList(List<int> list)
+    {
+        if (list is not null)
+            return new List<int>(list);
+        return list;
+    }
+
+    private static List<int> GetShortestList(List<List<int>> allLists)
+    {
+        var shortestList = allLists[0];
+
+        foreach (var list in allLists)
+        {
+            shortestList = list.Count < shortestList.Count ? list : shortestList;
+        }
+
+        return shortestList;
+
+    }
     #endregion
 }
 
