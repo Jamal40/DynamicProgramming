@@ -242,8 +242,13 @@ public static class Problems
     #endregion
 
     #region AllConstruct
-    public static List<List<string>> AllConstruct(string target, string[] wordBank)
+    public static List<List<string>> AllConstruct(string target, string[] wordBank, Dictionary<string, List<List<string>>> memo = null)
     {
+        memo ??= new();
+
+        if (memo.ContainsKey(target))
+            return memo[target];
+
         if (string.IsNullOrWhiteSpace(target))
             return new List<List<string>> { new List<string>() };
 
@@ -253,10 +258,11 @@ public static class Problems
             if (!CheckPrefix(target, wordBank[i]))
                 continue;
             var newTarget = RemovePrefix(target, wordBank[i]);
-            var currentResult = AllConstruct(newTarget, wordBank);
+            var currentResult = AllConstruct(newTarget, wordBank, memo).Select(l => l.ToList()).ToList();
             currentResult.ForEach(list => list.Add(wordBank[i]));
             result.AddRange(currentResult);
         }
+        memo[target] = result;
         return result;
     }
     #endregion
