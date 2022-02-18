@@ -241,6 +241,26 @@ public static class Problems
 
     #endregion
 
+    #region AllConstruct
+    public static List<List<string>> AllConstruct(string target, string[] wordBank)
+    {
+        if (string.IsNullOrWhiteSpace(target))
+            return new List<List<string>> { new List<string>() };
+
+        List<List<string>> result = new();
+        for (int i = 0; i < wordBank.Length; i++)
+        {
+            if (!CheckPrefix(target, wordBank[i]))
+                continue;
+            var newTarget = RemovePrefix(target, wordBank[i]);
+            var currentResult = AllConstruct(newTarget, wordBank);
+            currentResult.ForEach(list => list.Add(wordBank[i]));
+            result.AddRange(currentResult);
+        }
+        return result;
+    }
+    #endregion
+
     #region Helpers
 
     private static List<int> CreateList(List<int> list)

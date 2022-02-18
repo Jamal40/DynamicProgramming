@@ -71,6 +71,17 @@ Console.WriteLine(Problems.CountConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef",
 
 #endregion
 
+#region AllConstruct
+
+// Test by watching in debug mode.
+var t1 = Problems.AllConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" }); //1
+var t2 = Problems.AllConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" }); //0
+var t3 = Problems.AllConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" }); //4
+var t4 = Problems.AllConstruct("purple", new string[] { "purp", "p", "ur", "le", "purpl" }); //2
+var t5 = Problems.AllConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" }); //0
+
+#endregion
+
 #endregion
 
 #region Helpers
