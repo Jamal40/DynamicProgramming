@@ -210,23 +210,35 @@ public static class Problems
         return memo[target];
     }
 
-    private static string RemovePrefix(string word, string prefix)
+    #endregion
+
+    #region CountConstruct
+
+    public static int CountConstruct(string target, string[] wordBank, Dictionary<string, int> memo = null)
     {
-        if (!CheckPrefix(word, prefix))
-            return word;
-        return word.Substring(prefix.Length);
-        //return word.Replace(prefix, string.Empty);
+        memo ??= new();
+
+        if (memo.ContainsKey(target))
+            return memo[target];
+
+        if (string.IsNullOrWhiteSpace(target))
+            return 1;
+
+        int counter = 0;
+        for (int i = 0; i < wordBank.Length; i++)
+        {
+            if (!CheckPrefix(target, wordBank[i]))
+                continue;
+
+            string newTarget = RemovePrefix(target, wordBank[i]);
+            memo[target] = CountConstruct(newTarget, wordBank, memo);
+            counter += memo[target];
+        }
+
+        memo[target] = counter;
+        return memo[target];
     }
 
-    private static bool CheckPrefix(string word, string prefix)
-    {
-        for (int i = 0; i < prefix.Length; i++)
-        {
-            if (prefix[i] != word[i])
-                return false;
-        }
-        return true;
-    }
     #endregion
 
     #region Helpers
@@ -250,6 +262,25 @@ public static class Problems
         return shortestList;
 
     }
+
+    private static string RemovePrefix(string word, string prefix)
+    {
+        if (!CheckPrefix(word, prefix))
+            return word;
+        return word.Substring(prefix.Length);
+        //return word.Replace(prefix, string.Empty);
+    }
+
+    private static bool CheckPrefix(string word, string prefix)
+    {
+        for (int i = 0; i < prefix.Length; i++)
+        {
+            if (prefix[i] != word[i])
+                return false;
+        }
+        return true;
+    }
+
     #endregion
 }
 
