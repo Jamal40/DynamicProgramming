@@ -96,6 +96,19 @@ Console.WriteLine(TabulationProblems.Fib(50));
 
 #endregion
 
+#region Grid Traveler
+
+Console.WriteLine("---------Grid Traveler---------");
+Console.WriteLine(TabulationProblems.GetAllPathsToTravelGrid(40, 40));
+Console.WriteLine(TabulationProblems.GetAllPathsToTravelGrid(3, 3));
+Console.WriteLine(TabulationProblems.GetAllPathsToTravelGrid(18, 18));
+Console.WriteLine(TabulationProblems.GetAllPathsToTravelGrid(2, 1));
+Console.WriteLine(TabulationProblems.GetAllPathsToTravelGrid(1, 2));
+Console.WriteLine(TabulationProblems.GetAllPathsToTravelGrid(2, 3));
+Console.WriteLine(TabulationProblems.GetAllPathsToTravelGrid(3, 2));
+
+#endregion
+
 #endregion
 
 #endregion

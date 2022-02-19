@@ -18,5 +18,29 @@ public class TabulationProblems
     }
 
     #endregion
+
+    #region GridTraveler
+
+    public static long GetAllPathsToTravelGrid(int rows, int columns)
+    {
+        var table = new long[rows + 1, columns + 1];
+        table[1, 1] = 1;
+
+        for (int i = 0; i < table.GetLength(0); i++)
+        {
+            for (int j = 0; j < table.GetLength(1); j++)
+            {
+                if (i < table.GetLength(0) - 1)
+                    table[i + 1, j] += table[i, j];
+                if (j < table.GetLength(1) - 1)
+                    table[i, j + 1] += table[i, j];
+            }
+        }
+
+        return table[rows, columns];
+    }
+
+    #endregion
+
 }
 
