@@ -49,14 +49,40 @@ public class TabulationProblems
         var table = new bool[sum + 1];
         table[0] = true;
 
+        for (int i = 0; i < table.Length; i++)
+        {
+            if (table[i])
+            {
+                foreach (var number in numbers)
+                {
+                    if (number + i < table.Length)
+                        table[number + i] = true;
+                }
+            }
+        }
+        return table[sum];
+    }
 
+    #endregion
+
+    #region HowSum
+
+    public static List<int> HowSum(int sum, int[] numbers)
+    {
+        var table = new List<int>[sum + 1];
+        table[0] = new();
 
         for (int i = 0; i < table.Length; i++)
         {
-            foreach (var number in numbers)
+            if (table[i] is not null)
             {
-                if (table[i] && number + i < table.Length)
-                    table[number + i] = true;
+                foreach (var number in numbers)
+                {
+                    if (number + i >= table.Length || table[number + i] is not null)
+                        continue;
+
+                    table[number + i] = new(table[i]) { number };
+                }
             }
         }
 
