@@ -109,6 +109,17 @@ Console.WriteLine(TabulationProblems.GetAllPathsToTravelGrid(3, 2));
 
 #endregion
 
+#region CanSum
+
+Console.WriteLine("----------CanSum Tabulation-----------");
+Console.WriteLine(TabulationProblems.CanSum(7, new int[] { 4, 2 })); // false
+Console.WriteLine(TabulationProblems.CanSum(7, new int[] { 3, 2 })); // true
+Console.WriteLine(TabulationProblems.CanSum(7, new int[] { 5, 4, 3, 2 })); // true
+Console.WriteLine(TabulationProblems.CanSum(8, new int[] { 2, 5, 3 })); // true
+Console.WriteLine(TabulationProblems.CanSum(5000, new int[] { 7, 14 })); // false
+
+#endregion
+
 #endregion
 
 #endregion

@@ -42,5 +42,27 @@ public class TabulationProblems
 
     #endregion
 
+    #region CanSum
+
+    public static bool CanSum(int sum, int[] numbers)
+    {
+        var table = new bool[sum + 1];
+        table[0] = true;
+
+
+
+        for (int i = 0; i < table.Length; i++)
+        {
+            foreach (var number in numbers)
+            {
+                if (table[i] && number + i < table.Length)
+                    table[number + i] = true;
+            }
+        }
+
+        return table[sum];
+    }
+
+    #endregion
 }
 
