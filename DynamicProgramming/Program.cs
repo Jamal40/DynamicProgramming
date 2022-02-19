@@ -2,83 +2,99 @@
 
 #region Testing 
 
+#region Memoization
+
 #region Fib
 
 Console.WriteLine("----------Fib-----------");
-Console.WriteLine(Problems.FibSumRecursiveClassic(8));
-Console.WriteLine(Problems.FibRecursiveClassic(8));
-Console.WriteLine(Problems.FibRecursiveClassic(50));
-Console.WriteLine(Problems.FibRecursive(50));
+Console.WriteLine(MemoProblems.FibSumRecursiveClassic(8));
+Console.WriteLine(MemoProblems.FibRecursiveClassic(8));
+Console.WriteLine(MemoProblems.FibRecursiveClassic(50));
+Console.WriteLine(MemoProblems.FibRecursive(50));
 
 #endregion
 
 #region Grid Traveler
 
 Console.WriteLine("---------Grid Traveler---------");
-Console.WriteLine(Problems.GetAllPathsToTravelGrid(40, 40));
-Console.WriteLine(Problems.GetAllPathsToTravelGrid(3, 3));
-Console.WriteLine(Problems.GetAllPathsToTravelGrid(18, 18));
-Console.WriteLine(Problems.GetAllPathsToTravelGrid(2, 1));
-Console.WriteLine(Problems.GetAllPathsToTravelGrid(1, 2));
+Console.WriteLine(MemoProblems.GetAllPathsToTravelGrid(40, 40));
+Console.WriteLine(MemoProblems.GetAllPathsToTravelGrid(3, 3));
+Console.WriteLine(MemoProblems.GetAllPathsToTravelGrid(18, 18));
+Console.WriteLine(MemoProblems.GetAllPathsToTravelGrid(2, 1));
+Console.WriteLine(MemoProblems.GetAllPathsToTravelGrid(1, 2));
 
 #endregion
 
 #region CanSum
 
-Console.WriteLine(Problems.CanSum(7, new int[] { 4, 2 })); // false
-Console.WriteLine(Problems.CanSum(7, new int[] { 3, 2 })); // true
-Console.WriteLine(Problems.CanSum(7, new int[] { 5, 4, 3, 2 })); // true
-Console.WriteLine(Problems.CanSum(8, new int[] { 2, 5, 3 })); // true
-Console.WriteLine(Problems.CanSum(5000, new int[] { 7, 14 })); // false
+Console.WriteLine(MemoProblems.CanSum(7, new int[] { 4, 2 })); // false
+Console.WriteLine(MemoProblems.CanSum(7, new int[] { 3, 2 })); // true
+Console.WriteLine(MemoProblems.CanSum(7, new int[] { 5, 4, 3, 2 })); // true
+Console.WriteLine(MemoProblems.CanSum(8, new int[] { 2, 5, 3 })); // true
+Console.WriteLine(MemoProblems.CanSum(5000, new int[] { 7, 14 })); // false
 
 #endregion
 
 #region HowSum
 
-PrintCollection(Problems.HowSum2(7, new int[] { 4, 2 }));
-PrintCollection(Problems.HowSum2(7, new int[] { 3, 2 }));
-PrintCollection(Problems.HowSum2(7, new int[] { 5, 4, 3, 2 }));
-PrintCollection(Problems.HowSum2(8, new int[] { 2, 5, 3 }));
-PrintCollection(Problems.HowSum2(300, new int[] { 7, 14 }));
+PrintCollection(MemoProblems.HowSum2(7, new int[] { 4, 2 }));
+PrintCollection(MemoProblems.HowSum2(7, new int[] { 3, 2 }));
+PrintCollection(MemoProblems.HowSum2(7, new int[] { 5, 4, 3, 2 }));
+PrintCollection(MemoProblems.HowSum2(8, new int[] { 2, 5, 3 }));
+PrintCollection(MemoProblems.HowSum2(300, new int[] { 7, 14 }));
 
 #endregion
 
 #region BestSum
 
-PrintCollection(Problems.BestSum(7, new int[] { 5, 3, 4, 7 })); // 7
-PrintCollection(Problems.BestSum(8, new int[] { 5, 3, 2 })); // 3,5
-PrintCollection(Problems.BestSum(8, new int[] { 1, 4, 5 })); //4, 4
-PrintCollection(Problems.BestSum(100, new int[] { 1, 2, 5, 25 }));
+PrintCollection(MemoProblems.BestSum(7, new int[] { 5, 3, 4, 7 })); // 7
+PrintCollection(MemoProblems.BestSum(8, new int[] { 5, 3, 2 })); // 3,5
+PrintCollection(MemoProblems.BestSum(8, new int[] { 1, 4, 5 })); //4, 4
+PrintCollection(MemoProblems.BestSum(100, new int[] { 1, 2, 5, 25 }));
 
 #endregion
 
 #region CanConstruct
 
-Console.WriteLine(Problems.CanConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" })); //true
-Console.WriteLine(Problems.CanConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" })); //false
-Console.WriteLine(Problems.CanConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" })); //true
-Console.WriteLine(Problems.CanConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" })); //false
+Console.WriteLine(MemoProblems.CanConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" })); //true
+Console.WriteLine(MemoProblems.CanConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" })); //false
+Console.WriteLine(MemoProblems.CanConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" })); //true
+Console.WriteLine(MemoProblems.CanConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" })); //false
 
 #endregion
 
 #region CountConstruct
 
-Console.WriteLine(Problems.CountConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" })); //1
-Console.WriteLine(Problems.CountConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" })); //0
-Console.WriteLine(Problems.CountConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" })); //4
-Console.WriteLine(Problems.CountConstruct("purple", new string[] { "purp", "p", "ur", "le", "purpl" })); //2
-Console.WriteLine(Problems.CountConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" })); //0
+Console.WriteLine(MemoProblems.CountConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" })); //1
+Console.WriteLine(MemoProblems.CountConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" })); //0
+Console.WriteLine(MemoProblems.CountConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" })); //4
+Console.WriteLine(MemoProblems.CountConstruct("purple", new string[] { "purp", "p", "ur", "le", "purpl" })); //2
+Console.WriteLine(MemoProblems.CountConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" })); //0
 
 #endregion
 
 #region AllConstruct
 
 // Test by watching in debug mode.
-var t1 = Problems.AllConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" }); //1
-var t2 = Problems.AllConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" }); //0
-var t3 = Problems.AllConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" }); //4
-var t4 = Problems.AllConstruct("purple", new string[] { "purp", "p", "ur", "le", "purpl" }); //2
-var t5 = Problems.AllConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" }); //0
+var t1 = MemoProblems.AllConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" }); //1
+var t2 = MemoProblems.AllConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" }); //0
+var t3 = MemoProblems.AllConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" }); //4
+var t4 = MemoProblems.AllConstruct("purple", new string[] { "purp", "p", "ur", "le", "purpl" }); //2
+var t5 = MemoProblems.AllConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" }); //0
+
+#endregion
+
+#endregion
+
+#region Tabulation
+
+#region Fib
+
+Console.WriteLine(TabulationProblems.Fib(6));
+Console.WriteLine(TabulationProblems.Fib(7));
+Console.WriteLine(TabulationProblems.Fib(50));
+
+#endregion
 
 #endregion
 

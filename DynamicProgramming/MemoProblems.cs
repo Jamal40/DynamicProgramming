@@ -1,5 +1,5 @@
 ﻿namespace DynamicProgramming;
-public static class Problems
+public static class MemoProblems
 {
     #region Fib
 
