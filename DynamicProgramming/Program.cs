@@ -141,6 +141,37 @@ PrintCollection(TabulationProblems.BestSum(100, new int[] { 1, 2, 5, 25 }));
 
 #endregion
 
+#region CanConstruct
+
+Console.WriteLine(TabulationProblems.CanConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" })); //true
+Console.WriteLine(TabulationProblems.CanConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" })); //false
+Console.WriteLine(TabulationProblems.CanConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" })); //true
+Console.WriteLine(TabulationProblems.CanConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" })); //false
+
+#endregion
+
+#region CountConstruct
+
+Console.WriteLine(TabulationProblems.CountConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" })); //1
+Console.WriteLine(TabulationProblems.CountConstruct("cool", new string[] { "co", "o", "c", "l" })); //1
+Console.WriteLine(TabulationProblems.CountConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" })); //0
+Console.WriteLine(TabulationProblems.CountConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" })); //4
+Console.WriteLine(TabulationProblems.CountConstruct("purple", new string[] { "purp", "p", "ur", "le", "purpl" })); //2
+Console.WriteLine(TabulationProblems.CountConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" })); //0
+
+#endregion
+
+#region AllConstruct
+
+// Test by watching in debug mode.
+var ta1 = TabulationProblems.AllConstruct("abcdef", new string[] { "ab", "abc", "cd", "def", "abcd" }); //1
+var ta2 = TabulationProblems.AllConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" }); //0
+var ta3 = TabulationProblems.AllConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" }); //4
+var ta4 = TabulationProblems.AllConstruct("purple", new string[] { "purp", "p", "ur", "le", "purpl" }); //2
+var ta5 = TabulationProblems.AllConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" }); //0
+
+#endregion
+
 #endregion
 
 #endregion

@@ -113,15 +113,118 @@ public class TabulationProblems
                         continue;
                     }
 
-                    if (table[number + i] is not null)
-                        table[number + i] = table[number + i].Count < table[i].Count + 1 ?
-                            table[number + i] :
-                            new(table[i]) { number };
+                    table[number + i] = table[number + i].Count < table[i].Count + 1 ?
+                        table[number + i] :
+                        new(table[i]) { number };
                 }
             }
         }
 
         return table[sum];
+    }
+
+    #endregion
+
+    #region CanConstruct
+
+    public static bool CanConstruct(string target, string[] wordBank)
+    {
+        var table = new bool[target.Length + 1];
+        table[0] = true;
+
+        for (int i = 0; i < table.Length; i++)
+        {
+            if (table[i])
+            {
+                foreach (var word in wordBank)
+                {
+                    var newTarget = target.Substring(i);
+                    if (CheckPrefix(newTarget, word))
+                        table[i + word.Length] = true;
+                }
+            }
+        }
+
+        return table[target.Length];
+    }
+
+    #endregion
+
+    #region CountConstruct
+
+    public static int CountConstruct(string target, string[] wordBank)
+    {
+        var table = new int[target.Length + 1];
+        table[0] = 1;
+
+        for (int i = 0; i < table.Length; i++)
+        {
+            if (table[i] > 0)
+            {
+                foreach (var word in wordBank)
+                {
+                    var newTarget = target.Substring(i);
+                    if (CheckPrefix(newTarget, word))
+                    {
+                        table[i + word.Length] += table[i];
+                    }
+                }
+            }
+        }
+
+        return table[target.Length];
+    }
+
+    #endregion
+
+    #region AllConstruct
+
+    public static List<List<string>> AllConstruct(string target, string[] wordBank)
+    {
+        var table = new List<List<string>>[target.Length + 1];
+        table[0] = new List<List<string>>() { new List<string>() };
+
+        for (int i = 0; i < table.Length; i++)
+        {
+            if (table[i] is not null)
+            {
+                foreach (var word in wordBank)
+                {
+                    var newTarget = target.Substring(i);
+                    if (CheckPrefix(newTarget, word))
+                    {
+                        var newList = table[i].Select(l => l.ToList()).ToList();
+                        newList.ForEach(l => l.Add(word));
+                        if (table[i + word.Length] is null)
+                        {
+                            table[i + word.Length] = newList;
+                            continue;
+                        }
+
+                        table[i + word.Length].AddRange(newList);
+                    }
+                }
+            }
+        }
+
+        return table[target.Length];
+    }
+
+    #endregion
+
+    #region Helpers
+
+    private static bool CheckPrefix(string word, string prefix)
+    {
+        if (prefix.Length > word.Length)
+            return false;
+
+        for (int i = 0; i < prefix.Length; i++)
+        {
+            if (prefix[i] != word[i])
+                return false;
+        }
+        return true;
     }
 
     #endregion
