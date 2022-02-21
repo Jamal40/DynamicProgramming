@@ -90,5 +90,40 @@ public class TabulationProblems
     }
 
     #endregion
+
+    #region BestSum
+
+    public static List<int> BestSum(int sum, int[] numbers)
+    {
+        var table = new List<int>[sum + 1];
+        table[0] = new List<int>();
+
+        for (int i = 0; i < table.Length; i++)
+        {
+            if (table[i] is not null)
+            {
+                foreach (var number in numbers)
+                {
+                    if (number + i >= table.Length)
+                        continue;
+
+                    if (table[number + i] is null)
+                    {
+                        table[number + i] = new List<int>(table[i]) { number };
+                        continue;
+                    }
+
+                    if (table[number + i] is not null)
+                        table[number + i] = table[number + i].Count < table[i].Count + 1 ?
+                            table[number + i] :
+                            new(table[i]) { number };
+                }
+            }
+        }
+
+        return table[sum];
+    }
+
+    #endregion
 }
 

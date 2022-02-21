@@ -131,6 +131,16 @@ PrintCollection(TabulationProblems.HowSum(300, new int[] { 7, 14 }));
 
 #endregion
 
+#region BestSum
+
+Console.WriteLine("------------Best Sum Tabulation-----------");
+PrintCollection(TabulationProblems.BestSum(7, new int[] { 5, 3, 4, 7 })); // 7
+PrintCollection(TabulationProblems.BestSum(8, new int[] { 5, 3, 2 })); // 3,5
+PrintCollection(TabulationProblems.BestSum(8, new int[] { 1, 4, 5 })); //4, 4
+PrintCollection(TabulationProblems.BestSum(100, new int[] { 1, 2, 5, 25 }));
+
+#endregion
+
 #endregion
 
 #endregion
