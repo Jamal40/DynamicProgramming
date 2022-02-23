@@ -212,6 +212,21 @@ public class TabulationProblems
 
     #endregion
 
+    #region Trib
+
+    public static int Trib(int n)
+    {
+        var table = new int[n + 1];
+        table[2] = 1;
+        for (int i = 2; i < table.Length; i++)
+        {
+            table[i] = table[i - 1] + table[i - 2] + table[i - 3];
+        }
+        return table[n];
+    }
+
+    #endregion
+
     #region Helpers
 
     private static bool CheckPrefix(string word, string prefix)

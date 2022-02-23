@@ -84,9 +84,18 @@ var t5 = MemoProblems.AllConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new st
 
 #endregion
 
+#region Trib
+
+Console.WriteLine("--------Trib-------");
+Console.WriteLine(MemoProblems.Trib(5));
+
+#endregion
+
 #endregion
 
 #region Tabulation
+
+Console.WriteLine("Tabulation Starts");
 
 #region Fib
 
@@ -168,7 +177,14 @@ var ta1 = TabulationProblems.AllConstruct("abcdef", new string[] { "ab", "abc", 
 var ta2 = TabulationProblems.AllConstruct("skateboard", new string[] { "bo", "rd", "ate", "t", "ska", "sk", "boar" }); //0
 var ta3 = TabulationProblems.AllConstruct("enterapotentpot", new string[] { "a", "p", "ent", "enter", "ot", "o", "t" }); //4
 var ta4 = TabulationProblems.AllConstruct("purple", new string[] { "purp", "p", "ur", "le", "purpl" }); //2
-var ta5 = TabulationProblems.AllConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" }); //0
+//var ta5 = TabulationProblems.AllConstruct("eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeef", new string[] { "e", "ee", "eee", "eeee", "eeeee", "eeeeee" }); //0
+
+#endregion
+
+#region Trib
+
+Console.WriteLine("--------Trib-------");
+Console.WriteLine(MemoProblems.Trib(5));
 
 #endregion
 
