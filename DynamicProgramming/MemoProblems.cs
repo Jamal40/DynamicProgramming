@@ -286,6 +286,26 @@ public static class MemoProblems
 
     #endregion
 
+    #region MaxNonAjdacentSum
+
+    public static int MaxNonAjdacentSum(List<int> numbers, int i = 0, Dictionary<int, int> memo = null)
+    {
+        memo ??= new();
+
+        if (memo.ContainsKey(i))
+            return memo[i];
+
+        if (i >= numbers.Count)
+            return 0;
+        var num1 = numbers[i] + MaxNonAjdacentSum(numbers, i + 2, memo);
+        var num2 = MaxNonAjdacentSum(numbers, i + 1, memo);
+
+        memo[i] = Math.Max(num1, num2);
+        return memo[i];
+    }
+
+    #endregion
+
     #region Helpers
 
     private static List<int> CreateList(List<int> list)
