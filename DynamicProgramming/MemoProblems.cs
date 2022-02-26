@@ -331,6 +331,31 @@ public static class MemoProblems
 
     #endregion
 
+    #region ArrayStepper
+
+    public static bool ArrayStepper(int[] numbers, int index = 0, HashSet<int> memo = null)
+    {
+        memo ??= new();
+
+        if (memo.Contains(index))
+            return false;
+        if (index >= numbers.Length - 1)
+            return true;
+        if (numbers[index] == 0)
+            return false;
+
+        for (int j = 1; j <= numbers[index]; j++)
+        {
+            if (ArrayStepper(numbers, index + j, memo))
+                return true;
+        }
+
+        memo.Add(index);
+        return false;
+    }
+
+    #endregion
+
     #region Helpers
 
     private static List<int> CreateList(List<int> list)

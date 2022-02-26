@@ -97,7 +97,7 @@ Console.WriteLine("-----------Max Non Ajdacent Sum-------------");
 Console.WriteLine(MemoProblems.MaxNonAjdacentSum(new List<int> { 12 }));
 Console.WriteLine(MemoProblems.MaxNonAjdacentSum(new List<int> { 12, 7 }));
 Console.WriteLine(MemoProblems.MaxNonAjdacentSum(new List<int> { 2, 4, 5, 12, 7 }));
-Console.WriteLine(MemoProblems.MaxNonAjdacentSum(new List<int> {  
+Console.WriteLine(MemoProblems.MaxNonAjdacentSum(new List<int> {
   72, 62, 10,  6, 20, 19, 42, 46, 24, 78,
   30, 41, 75, 38, 23, 28, 66, 55, 12, 17,
   83, 80, 56, 68,  6, 22, 56, 96, 77, 98,
@@ -120,6 +120,25 @@ Console.WriteLine(MemoProblems.SummingSquares(31));
 Console.WriteLine(MemoProblems.SummingSquares(50));
 Console.WriteLine(MemoProblems.SummingSquares(68));
 Console.WriteLine(MemoProblems.SummingSquares(87));
+
+#endregion
+
+#region ArrayStepper 
+
+Console.WriteLine("-----------Array Stepper-----------");
+Console.WriteLine(MemoProblems.ArrayStepper(new int[] { 2, 4, 2, 0, 0, 1 }));
+Console.WriteLine(MemoProblems.ArrayStepper(new int[] { 2, 3, 2, 0, 0, 1 }));
+Console.WriteLine(MemoProblems.ArrayStepper(new int[] { 3, 1, 3, 1, 0, 1 }));
+Console.WriteLine(MemoProblems.ArrayStepper(new int[] { 4, 1, 5, 1, 1, 1, 0, 4 }));
+Console.WriteLine(MemoProblems.ArrayStepper(new int[] { 4, 1, 2, 1, 1, 1, 0, 4 }));
+Console.WriteLine(MemoProblems.ArrayStepper(new int[] { 1, 1, 1, 1, 1, 0 }));
+Console.WriteLine(MemoProblems.ArrayStepper(new int[] { 1, 1, 1, 1, 0, 0 }));
+Console.WriteLine(MemoProblems.ArrayStepper(new int[] {   31, 30, 29, 28, 27,
+  26, 25, 24, 23, 22,
+  21, 20, 19, 18, 17,
+  16, 15, 14, 13, 12,
+  11, 10, 9, 8, 7, 6,
+  5, 3, 2, 1, 0, 0, 0 }));
 
 #endregion
 
