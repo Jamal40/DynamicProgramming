@@ -227,6 +227,32 @@ public class TabulationProblems
 
     #endregion
 
+    #region MaxNonAjdacentSum
+
+    public static int MaxNonAjdacentSum(List<int> numbers)
+    {
+        if (numbers.Count == 0)
+            return 0;
+        if (numbers.Count == 1)
+            return numbers[0];
+
+        var table = new int[numbers.Count];
+        table[0] = numbers[0];
+        table[1] = numbers[1];
+
+        for (int i = 1; i < table.Length; i++)
+        {
+            var prev_prev = table[i - 2];
+            var prev = table[i - 1];
+
+            table[i] = Math.Max(prev_prev + numbers[i], prev);
+        }
+
+        return table[table.Length - 1];
+    }
+
+    #endregion
+
     #region Helpers
 
     private static bool CheckPrefix(string word, string prefix)

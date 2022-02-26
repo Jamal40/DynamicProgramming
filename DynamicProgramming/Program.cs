@@ -92,6 +92,7 @@ Console.WriteLine(MemoProblems.Trib(5));
 #endregion
 
 #region MaxNonAdjacent
+
 Console.WriteLine("-----------Max Non Ajdacent Sum-------------");
 Console.WriteLine(MemoProblems.MaxNonAjdacentSum(new List<int> { 12 }));
 Console.WriteLine(MemoProblems.MaxNonAjdacentSum(new List<int> { 12, 7 }));
@@ -201,6 +202,23 @@ var ta4 = TabulationProblems.AllConstruct("purple", new string[] { "purp", "p", 
 
 Console.WriteLine("--------Trib-------");
 Console.WriteLine(MemoProblems.Trib(5));
+
+#endregion
+
+#region MaxNonAdjacent
+
+Console.WriteLine("-----------Max Non Ajdacent Sum-------------");
+Console.WriteLine(TabulationProblems.MaxNonAjdacentSum(new List<int> { 12 }));
+Console.WriteLine(TabulationProblems.MaxNonAjdacentSum(new List<int> { 12, 7 }));
+Console.WriteLine(TabulationProblems.MaxNonAjdacentSum(new List<int> { 2, 4, 5, 12, 7 }));
+Console.WriteLine(TabulationProblems.MaxNonAjdacentSum(new List<int> {
+  72, 62, 10,  6, 20, 19, 42, 46, 24, 78,
+  30, 41, 75, 38, 23, 28, 66, 55, 12, 17,
+  83, 80, 56, 68,  6, 22, 56, 96, 77, 98,
+  61, 20,  0, 76, 53, 74,  8, 22, 92, 37,
+  30, 41, 75, 38, 23, 28, 66, 55, 12, 17,
+  72, 62, 10,  6, 20, 19, 42, 46, 24, 78,
+  42 }));
 
 #endregion
 
