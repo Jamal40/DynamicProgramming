@@ -108,6 +108,21 @@ Console.WriteLine(MemoProblems.MaxNonAjdacentSum(new List<int> {
 
 #endregion
 
+#region SummingSquares
+
+Console.WriteLine("----------------Summing Squares---------------");
+Console.WriteLine(MemoProblems.SummingSquares(3));
+Console.WriteLine(MemoProblems.SummingSquares(8));
+Console.WriteLine(MemoProblems.SummingSquares(9));
+Console.WriteLine(MemoProblems.SummingSquares(12));
+Console.WriteLine(MemoProblems.SummingSquares(1));
+Console.WriteLine(MemoProblems.SummingSquares(31));
+Console.WriteLine(MemoProblems.SummingSquares(50));
+Console.WriteLine(MemoProblems.SummingSquares(68));
+Console.WriteLine(MemoProblems.SummingSquares(87));
+
+#endregion
+
 #endregion
 
 #region Tabulation
@@ -219,6 +234,21 @@ Console.WriteLine(TabulationProblems.MaxNonAjdacentSum(new List<int> {
   30, 41, 75, 38, 23, 28, 66, 55, 12, 17,
   72, 62, 10,  6, 20, 19, 42, 46, 24, 78,
   42 }));
+
+#endregion
+
+#region SummingSquares
+
+Console.WriteLine("----------------Summing Squares---------------");
+Console.WriteLine(TabulationProblems.SummingSquares(3));
+Console.WriteLine(TabulationProblems.SummingSquares(8));
+Console.WriteLine(TabulationProblems.SummingSquares(9));
+Console.WriteLine(TabulationProblems.SummingSquares(12));
+Console.WriteLine(TabulationProblems.SummingSquares(1));
+Console.WriteLine(TabulationProblems.SummingSquares(31));
+Console.WriteLine(TabulationProblems.SummingSquares(50));
+Console.WriteLine(TabulationProblems.SummingSquares(68));
+Console.WriteLine(TabulationProblems.SummingSquares(87));
 
 #endregion
 

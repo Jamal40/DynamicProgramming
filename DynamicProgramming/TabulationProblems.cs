@@ -238,9 +238,9 @@ public class TabulationProblems
 
         var table = new int[numbers.Count];
         table[0] = numbers[0];
-        table[1] = numbers[1];
+        table[1] = Math.Max(numbers[1], numbers[0]);
 
-        for (int i = 1; i < table.Length; i++)
+        for (int i = 2; i < table.Length; i++)
         {
             var prev_prev = table[i - 2];
             var prev = table[i - 1];
@@ -249,6 +249,37 @@ public class TabulationProblems
         }
 
         return table[table.Length - 1];
+    }
+
+    #endregion
+
+    #region SummingSquares
+
+    public static int SummingSquares(int n)
+    {
+        var squares = GeneratePerfectSquares(n);
+        var table = new int[n + 1];
+        table[0] = 0;
+
+        for (int i = 0; i < table.Length; i++)
+        {
+            foreach (var square in squares)
+            {
+                if (i + square < table.Length)
+                {
+                    if (table[i + square] == 0)
+                        table[i + square] = 1 + table[i];
+                    else
+                    {
+                        table[i + square] = Math.Min(1 + table[i], table[i + square]);
+                    }
+
+                }
+
+            }
+        }
+
+        return table[n];
     }
 
     #endregion
@@ -266,6 +297,18 @@ public class TabulationProblems
                 return false;
         }
         return true;
+    }
+
+    private static List<int> GeneratePerfectSquares(int n)
+    {
+        var result = new List<int>();
+        var num = 1;
+        while (num * num <= n)
+        {
+            result.Add(num * num);
+            num++;
+        }
+        return result;
     }
 
     #endregion

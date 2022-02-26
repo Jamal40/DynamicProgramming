@@ -306,6 +306,31 @@ public static class MemoProblems
 
     #endregion
 
+    #region SummingSquares
+
+    public static int SummingSquares(int n, Dictionary<int, int> memo = null)
+    {
+        var squares = GeneratePerfectSquares(n);
+        memo ??= new();
+
+        if (memo.ContainsKey(n))
+            return memo[n];
+        if (n == 0)
+            return 0;
+
+        int shortest = n;
+        foreach (var square in squares)
+        {
+            var current = 1 + SummingSquares(n - square, memo);
+            shortest = current < shortest ? current : shortest;
+        }
+
+        memo[n] = shortest;
+        return memo[n];
+    }
+
+    #endregion
+
     #region Helpers
 
     private static List<int> CreateList(List<int> list)
@@ -333,7 +358,6 @@ public static class MemoProblems
         if (!CheckPrefix(word, prefix))
             return word;
         return word.Substring(prefix.Length);
-        //return word.Replace(prefix, string.Empty);
     }
 
     private static bool CheckPrefix(string word, string prefix)
@@ -344,6 +368,18 @@ public static class MemoProblems
                 return false;
         }
         return true;
+    }
+
+    private static List<int> GeneratePerfectSquares(int n)
+    {
+        var result = new List<int>();
+        var num = 1;
+        while (num * num <= n)
+        {
+            result.Add(num * num);
+            num++;
+        }
+        return result;
     }
 
     #endregion
