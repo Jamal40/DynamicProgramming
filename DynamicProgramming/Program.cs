@@ -142,6 +142,22 @@ Console.WriteLine(MemoProblems.ArrayStepper(new int[] {   31, 30, 29, 28, 27,
 
 #endregion
 
+#region LongestPalin
+
+Console.WriteLine("-------------Longest Palin------------");
+Console.WriteLine(MemoProblems.GetLongestPalin("bb")); //2
+Console.WriteLine(MemoProblems.GetLongestPalin("lul")); //3
+Console.WriteLine(MemoProblems.GetLongestPalin("luwxult")); //5
+Console.WriteLine(MemoProblems.GetLongestPalin("xyzaxxzy")); //6
+Console.WriteLine(MemoProblems.GetLongestPalin("lol")); //3
+Console.WriteLine(MemoProblems.GetLongestPalin("boabcdefop")); //3
+Console.WriteLine(MemoProblems.GetLongestPalin("z")); //1
+Console.WriteLine(MemoProblems.GetLongestPalin("chartreusepugvicefree")); //7
+Console.WriteLine(MemoProblems.GetLongestPalin("qwueoiuahsdjnweuueueunasdnmnqweuzqwerty")); //15
+Console.WriteLine(MemoProblems.GetLongestPalin("enamelpinportlandtildecoldpressedironyflannelsemioticsedisonbulbfashionaxe")); //31
+
+#endregion
+
 #endregion
 
 #region Tabulation

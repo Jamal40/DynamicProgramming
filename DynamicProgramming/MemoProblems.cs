@@ -356,6 +356,36 @@ public static class MemoProblems
 
     #endregion
 
+    #region LongestPalin
+
+    public static int GetLongestPalin(string str, int start = 0, int end = -2,
+        Dictionary<(int start, int end), int> memo = null)
+    {
+        memo ??= new();
+
+        end = end == -2 ? str.Length - 1 : end;
+
+        if (memo.ContainsKey((start, end)))
+            return memo[(start, end)];
+        if (end-start < 0 || start>=str.Length)
+            return 0;
+        if (end == start)
+            return 1;
+
+        if (str[start] == str[end])
+        {
+            memo[(start, end)] = 2 + GetLongestPalin(str, start + 1, end - 1, memo);
+            return memo[(start, end)];
+        }
+
+
+        memo[(start, end)] = Math.Max(GetLongestPalin(str, start + 1, end, memo),
+            GetLongestPalin(str, start, end - 1, memo));
+        return memo[(start, end)];
+    }
+
+    #endregion
+
     #region Helpers
 
     private static List<int> CreateList(List<int> list)
